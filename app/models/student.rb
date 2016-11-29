@@ -1,6 +1,5 @@
-class Student < ApplicationRecord
+class Student < User
+  belongs_to :teacher
   has_many :grades
   has_many :parents
-  belongs_to :teacher
-  validates :name, presence: true
 end

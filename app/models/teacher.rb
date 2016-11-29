@@ -1,4 +1,3 @@
-class Teacher < ApplicationRecord
+class Teacher < User
   has_many :students
-  validates :name, presence: true
 end

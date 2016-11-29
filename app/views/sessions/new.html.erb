@@ -1,0 +1,21 @@
+<h4>Log in to the Gradebook</h4>
+
+<% if @error %>
+  <div class="alert alert-danger">
+    <%= @error %>
+  </div>
+<% end %>
+
+<%= form_tag session_path do  %>
+
+  <%= label_tag :name %>
+  <%= text_field_tag :name, nil, class: 'form-control' %>
+
+  <%= label_tag :password %>
+  <%= password_field_tag :password, nil, class: 'form-control' %>
+
+  <hr>
+
+  <%= submit_tag nil, class: 'btn btn-default btn-success' %>
+
+<% end %>

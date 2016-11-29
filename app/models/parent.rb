@@ -1,4 +1,3 @@
-class Parent < ApplicationRecord
+class Parent < User
   belongs_to :student
-  validates :name, presence: true
 end

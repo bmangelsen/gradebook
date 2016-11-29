@@ -4,8 +4,16 @@
 # model remove the '{}' from the fixture names and add the columns immediately
 # below each fixture, per the syntax in the comments below
 #
-one: {}
+history:
+  assignment_name: "US History"
+  date: <%= Date.new(2016,11,29) %>
+  grade: A
+  student: alex
 # column: value
 #
-two: {}
+math:
+  assignment_name: "Calculus"
+  date: <%= Date.new(2016,11,29) %>
+  grade: B
+  student: alex
 # column: value
