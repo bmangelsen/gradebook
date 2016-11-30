@@ -6,6 +6,6 @@ Rails.application.routes.draw do
   resources :teachers, only: [:index, :new, :create, :show]
   resources :parents, only: [:index, :new, :create, :show]
   resources :students, only: [:index, :new, :create, :show]
-  resources :grades, only: [:index, :new, :create, :index, :show]
+  resources :grades, only: [:index, :new, :create, :edit, :update, :destroy]
 
 end

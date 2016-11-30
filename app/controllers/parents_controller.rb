@@ -18,6 +18,8 @@ class ParentsController < ApplicationController
     end
   end
 
+  private
+
   def parent_params
     params.require(:parent).permit(:name, :student_id)
   end

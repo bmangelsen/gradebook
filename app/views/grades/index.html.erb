@@ -17,6 +17,10 @@
       <th>
         Student
       </th>
+      <th>
+      </th>
+      <th>
+      </th>
     </tr>
   </thead>
   <tbody>
@@ -33,6 +37,12 @@
       </td>
       <td>
         <%= Student.find_by(id: grade.student_id).name %>
+      </td>
+      <td>
+        <%= link_to "Edit Grade", edit_grade_path(grade.id), class: 'btn btn-default btn-success btn-xs' %>
+      </td>
+      <td>
+        <%= link_to "Delete Grade", grade_path(grade.id), method: :delete, class: 'btn btn-default btn-danger btn-xs' %>
       </td>
     </tr>
     <% end %>
