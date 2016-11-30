@@ -11,11 +11,8 @@ class UsersController < ApplicationController
       render :edit
     else
       @user.update(password: params[user_type][:password])
-      if @user.save
-        redirect_to root_path
-      else
-        render :edit
-      end
+      @user.save
+      redirect_to root_path
     end
   end
 

@@ -6,6 +6,12 @@
   </div>
 <% end %>
 
+<% if flash[:alert] %>
+  <p>
+    <%= flash[:alert] %>
+  </p>
+<% end %>
+
 <%= form_tag session_path do  %>
 
   <%= label_tag :name %>

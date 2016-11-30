@@ -2,7 +2,7 @@ class StudentsController < ApplicationController
   load_and_authorize_resource
 
   def index
-    @users = User.all
+    @users = User.all.accessible_by(current_ability)
   end
 
   def new

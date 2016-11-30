@@ -30,4 +30,10 @@ class StudentsControllerTest < ActionDispatch::IntegrationTest
     post students_path, params: { student: {name: "Bob"} }
     assert_select "h4", "Enter the info for your new student!"
   end
+
+  test "display redirection message when attempting to access unauthorized thing" do
+    new_session(:alex)
+    get new_student_path
+    assert_select "a", "redirected"
+  end
 end

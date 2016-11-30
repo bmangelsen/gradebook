@@ -21,4 +21,12 @@ class SessionsControllerTest < ActionDispatch::IntegrationTest
     post session_path, params: { name: users(:ben).name, password: "zoinks" }
     assert_select "div", "Wrong password/username combo!"
   end
+
+  test "can get edit user password view when user attempts to log in for first time" do
+    new_session(:ben)
+    post teachers_path, params: { teacher: { name: "Bob"} }
+    delete session_path(users(:ben).id)
+    post session_path, params: { name: Teacher.last.name }
+    assert_select "h4", "Change your password!"
+  end
 end

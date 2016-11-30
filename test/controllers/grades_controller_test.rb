@@ -37,6 +37,12 @@ class GradesControllerTest < ActionDispatch::IntegrationTest
     assert_equal "B", Grade.find_by(id: grades(:history).id).grade
   end
 
+  test "redirects to update grade view when grade does not update" do
+    new_session(:ben)
+    patch grade_path(grades(:history).id), params: { grade: { grade: "" } }
+    assert_select "h4", "Edit the info for this grade!"
+  end
+
   test "can delete grade" do
     new_session(:ben)
     delete grade_path(grades(:history).id)
