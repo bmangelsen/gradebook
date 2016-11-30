@@ -11,10 +11,11 @@ class Ability
     #     can :read, :all
     #   end
     if user.teacher?
-      can :create, Teacher
-      can :create, Parent
-      can :create, Student
-      can :manage, Grade
+      can :manage, :all
+      # can :create, Teacher
+      # can :create, Parent
+      # can :create, Student
+      # can :manage, Grade
     elsif user.parent?
       can :view, Grade, student_id: user.student_id
     else

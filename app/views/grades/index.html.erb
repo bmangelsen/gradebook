@@ -1,0 +1,40 @@
+<%= link_to "Back to Options", teacher_path(current_user.id) %>
+
+<h4>Here are all the grades:</h4>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>
+        Assignment Name
+      </th>
+      <th>
+        Date
+      </th>
+      <th>
+        Grade
+      </th>
+      <th>
+        Student
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @grades.each do |grade| %>
+    <tr>
+      <td>
+        <%= grade.assignment_name %>
+      </td>
+      <td>
+        <%= grade.date %>
+      </td>
+      <td>
+        <%= grade.grade %>
+      </td>
+      <td>
+        <%= Student.find_by(id: grade.student_id).name %>
+      </td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>

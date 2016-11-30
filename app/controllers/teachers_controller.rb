@@ -1,8 +1,21 @@
 class TeachersController < ApplicationController
   load_and_authorize_resource
 
-  def show
+  def index
+    @users = User.all
+  end
 
+  def new
+    @teacher = Teacher.new
+  end
+
+  def create
+    @teacher = Teacher.new(teacher_params)
+    if @teacher.save
+      redirect_to teachers_path
+    else
+      render :new
+    end
   end
 
   def teacher_params

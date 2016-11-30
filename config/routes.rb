@@ -3,9 +3,9 @@ Rails.application.routes.draw do
   root 'sessions#new'
 
   resource :session, only: [:create, :destroy]
-  resources :teacher, only: [:new, :create, :show]
-  resources :parent, only: [:new, :create, :show]
-  resources :student, only: [:new, :create, :show]
-  resources :grade, only: [:new, :create, :index, :show]
+  resources :teachers, only: [:index, :new, :create, :show]
+  resources :parents, only: [:index, :new, :create, :show]
+  resources :students, only: [:index, :new, :create, :show]
+  resources :grades, only: [:index, :new, :create, :index, :show]
 
 end

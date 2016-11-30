@@ -2,7 +2,7 @@ class User < ApplicationRecord
   attr_reader :password
   validates :name, presence: true
   validates :type, presence: true
-  validates :password, presence: true
+  # validates :password, presence: true
 
   def authorize!(unhashed_password)
     @_bcrypt_password ||= BCrypt::Password.new(password_hash)
@@ -16,14 +16,14 @@ class User < ApplicationRecord
   end
 
   def teacher?
-    membership_type == "Teacher"
+    type == "Teacher"
   end
 
   def parent?
-    membership_type == "Parent"
+    type == "Parent"
   end
 
   def student?
-    membership_type == "Student"
+    type == "Student"
   end
 end

@@ -1,0 +1,27 @@
+<% if @student.errors.any? %>
+  <div class="alert alert-danger">
+    <% @student.errors.full_messages.each do |error| %>
+      <p><%= error %>!</p>
+    <% end %>
+  </div>
+<% end %>
+
+<%= link_to "Back to Options", teacher_path(current_user.id) %>
+
+<h4>Enter the info for your new student!</h4>
+
+<%= form_for @student do |f| %>
+
+  <%= f.label :name %>
+  <%= f.text_field :name, class: "form-control", maxlength: "30" %>
+
+  <hr>
+
+  <%= f.label :teacher_id %>
+  <%= f.select :teacher_id, Teacher.all.map { |teacher|  [teacher.name, teacher.id] }, include_blank: true %>
+
+  <hr>
+
+  <%= f.submit class: 'btn btn-default btn-success' %>
+
+<% end %>

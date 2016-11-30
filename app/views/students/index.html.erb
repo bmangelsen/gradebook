@@ -1,0 +1,28 @@
+<%= link_to "Back to Options", teacher_path(current_user.id) %>
+
+<h4>Here are all the students:</h4>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>
+        Name
+      </th>
+      <th>
+        Teacher
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @users.where(type: "Student").each do |user| %>
+    <tr>
+      <td>
+        <%= user.name %>
+      </td>
+      <td>
+        <%= Teacher.find_by(id: user.teacher_id).name %>
+      </td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>

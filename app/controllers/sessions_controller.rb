@@ -18,11 +18,11 @@ class SessionsController < ApplicationController
     @user = User.find_by(name: params[:name])
 
     if @user.type == "Teacher"
-      redirect_to teacher_path
+      redirect_to teacher_path(@user.id)
     elsif @user.type == "Student"
-      redirect_to student_path
+      redirect_to student_path(@user.id)
     else
-      redirect_to parent_path
+      redirect_to parent_path(@user.id)
     end
   end
 

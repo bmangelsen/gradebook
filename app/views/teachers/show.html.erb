@@ -1,0 +1,23 @@
+<p>
+  You've logged in as <%= "#{current_user.name}" %>. What would you like to do today?
+</p>
+
+<div class="row content">
+  <%= link_to "Create a Teacher", new_teacher_path, class: 'btn btn-default btn-success btn-xs' %>
+  <%= link_to "View Teachers", teachers_path, class: 'btn btn-default btn-info btn-xs' %>
+</div>
+
+<div class="row content">
+  <%= link_to "Create a Student", new_student_path, class: 'btn btn-default btn-success btn-xs' %>
+  <%= link_to "View Students", students_path, class: 'btn btn-default btn-info btn-xs' %>
+</div>
+
+<div class="row content">
+  <%= link_to "Create a Parent", new_parent_path, class: 'btn btn-default btn-success btn-xs' %>
+  <%= link_to "View Parents", parents_path, class: 'btn btn-default btn-info btn-xs' %>
+</div>
+
+<div class="row content">
+  <%= link_to "Create a Grade", new_grade_path, class: 'btn btn-default btn-success btn-xs' %>
+  <%= link_to "View Grades", grades_path, class: 'btn btn-default btn-info btn-xs' %>
+</div>

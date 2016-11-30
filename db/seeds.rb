@@ -6,10 +6,19 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-ben = Teacher.create!(name: "Ben", password: "password")
-alex = ben.students.create!(name: "Alex", password: "password")
-russell = alex.parents.create!(name: "Russell", password: "password")
 
-Grade.create!(assignment_name: "US History", date: Date.new(2016,11,29), grade: "A", student_id: alex.id)
-Grade.create!(assignment_name: "Calculus", date: Date.new(2016,11,29), grade: "B", student_id: alex.id)
-Grade.create!(assignment_name: "Biology", date: Date.new(2016,11,29), grade: "C", student_id: alex.id)
+20.times do
+  Teacher.create(name: FFaker::Name.name, password: "password")
+end
+
+100.times do
+  Student.create(name: FFaker::Name.name, password: "password", teacher_id: Teacher.all.sample.id)
+end
+
+200.times do
+  Parent.create(name: FFaker::Name.name, password: "password", student_id: Student.all.sample.id)
+end
+
+500.times do
+  Grade.create(assignment_name: ["History", "Calculus", "Biology"].sample, date: FFaker::Time.date, grade: ["A", "B", "C", "D", "F"].sample, student_id: Student.all.sample.id)
+end

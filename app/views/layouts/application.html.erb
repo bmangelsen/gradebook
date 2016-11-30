@@ -13,16 +13,20 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <div class="container">
-    <ul class="nav navbar-nav">
-      <li>The Big Scary Gradebook</li>
-    </ul>
-  </div>
+  <body>
 
+    <div class="container">
+      <nav class='navbar navbar-default'>
 
-  <div class="container">
-    <body>
+        <ul id="logout" class="nav navbar-nav navbar-right">
+          <% if current_user %>
+            <li><%= link_to "Log Out", session_path, method: :delete %></li>
+          <% end %>
+        </ul>
+
+      </nav>
+
       <%= yield %>
-    </body>
-  </div>
+    </div>
+  </body>
 </html>

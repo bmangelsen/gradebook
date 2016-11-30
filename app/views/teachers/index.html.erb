@@ -1,0 +1,9 @@
+<%= link_to "Back to Options", teacher_path(current_user.id) %>
+
+<h4>Here are all the teachers:</h4>
+
+<% @users.where(type: "Teacher").each do |user| %>
+  <ul>
+    <li><%= user.name %></li>
+  </ul>
+<% end %>
