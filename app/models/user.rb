@@ -14,4 +14,16 @@ class User < ApplicationRecord
     @_bcrypt_password = BCrypt::Password.create(@password)
     self.password_hash = @_bcrypt_password
   end
+
+  def teacher?
+    membership_type == "Teacher"
+  end
+
+  def parent?
+    membership_type == "Parent"
+  end
+
+  def student?
+    membership_type == "Student"
+  end
 end
