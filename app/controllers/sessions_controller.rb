@@ -5,7 +5,9 @@ class SessionsController < ApplicationController
   def create
     @user = User.find_by(name: params[:name])
 
-    if @user && @user.authorize!(params[:password])
+    if @user && @user.password_hash == nil
+      render 'users/edit'
+    elsif @user && @user.authorize!(params[:password])
       session["current_user_id"] = @user.id
       path
     else

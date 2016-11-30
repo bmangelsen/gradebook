@@ -7,5 +7,6 @@ Rails.application.routes.draw do
   resources :parents, only: [:index, :new, :create, :show]
   resources :students, only: [:index, :new, :create, :show]
   resources :grades, only: [:index, :new, :create, :edit, :update, :destroy]
+  resources :users, only: [:edit, :update]
 
 end

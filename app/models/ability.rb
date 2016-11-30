@@ -17,9 +17,11 @@ class Ability
       # can :create, Student
       # can :manage, Grade
     elsif user.parent?
-      can :view, Grade, student_id: user.student_id
+      can :read, Parent, id: user.id
+      can :read, Grade, student_id: user.student_id
     else
-      can :view, Grade, student_id: user.id
+      can :read, Student, id: user.id
+      can :read, Grade, student_id: user.id
     end
     # The first argument to `can` is the action you are giving the user
     # permission to do.

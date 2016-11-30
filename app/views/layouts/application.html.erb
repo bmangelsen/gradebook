@@ -20,6 +20,8 @@
 
         <ul id="logout" class="nav navbar-nav navbar-right">
           <% if current_user %>
+            <li><%= link_to "Home Page", current_user %>
+            <li><%= link_to "Edit Password", edit_user_path(current_user.id) %></li>
             <li><%= link_to "Log Out", session_path, method: :delete %></li>
           <% end %>
         </ul>
