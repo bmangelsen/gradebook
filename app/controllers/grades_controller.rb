@@ -2,7 +2,7 @@ class GradesController < ApplicationController
   load_and_authorize_resource
 
   def index
-    @per_page = 20.0
+    @per_page = 15.0
     @grades = Grade.limit(@per_page).offset(@per_page * current_page).accessible_by(current_ability)
   end
 
@@ -11,12 +11,7 @@ class GradesController < ApplicationController
   end
 
   def current_page
-    page = params[:page].to_i
-    @page = if page < total_pages && page > 0
-      page
-    else
-      0
-    end
+    @page = params[:page].to_i
   end
 
   helper_method :total_pages
